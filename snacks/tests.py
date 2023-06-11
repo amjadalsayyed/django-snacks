@@ -13,3 +13,13 @@ class ThingsTest(SimpleTestCase):
         url = reverse('home')
         response = self.client.get(url)
         self.assertTemplateUsed(response,'home.html')
+        
+    def test_aboutus_page_status(self):
+        url = reverse('aboutus')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code,200)
+
+    def test_aboutus_page(self):
+        url = reverse('aboutus')
+        response = self.client.get(url)
+        self.assertTemplateUsed(response,'aboutus.html')
